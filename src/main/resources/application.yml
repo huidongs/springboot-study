@@ -1,0 +1,13 @@
+
+person:
+  lastName: huidong
+  age: 18
+  boss: false
+  birth: 1998/06/13
+  maps: {k1: v1,k2: v2}
+  lists:
+    - huidong
+    - huidong
+  dog:
+    name: 小狗
+    age: 10
