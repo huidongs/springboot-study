@@ -12,11 +12,18 @@ import org.springframework.web.bind.annotation.RestController;
  * @description:
  */
 
-@RestController
+@Controller
 public class HelloController {
 
+    @ResponseBody
     @RequestMapping("/out")
     public String test(){
         return "Hello SpringBoot";
+    }
+
+    @RequestMapping("success")
+    String success(){
+        //classpath:/templates/success.html
+        return "success";
     }
 }
