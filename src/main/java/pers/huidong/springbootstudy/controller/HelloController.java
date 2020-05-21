@@ -20,14 +20,6 @@ import java.util.Map;
 
 @Controller
 public class HelloController {
-    @Autowired
-    private Person person;
-
-    @ResponseBody
-    @RequestMapping("/out")
-    public String test(){
-        return "Hello SpringBoot";
-    }
 
     //注意：在使用 @RequestMapping后，返回值通常解析为跳转路径，但是加上 @ResponseBody 后返回结果不会被解析为跳转路径，而是直接写入 HTTP response body 中。
     //classpath:/templates/success.html
@@ -35,7 +27,6 @@ public class HelloController {
     public String success(Map<String,Object> map){
         map.put("hello","<h1>你好</h1>");
         map.put("users", Arrays.asList("huidong1","huidong2","huidong3"));
-
         return "success";
     }
 }
