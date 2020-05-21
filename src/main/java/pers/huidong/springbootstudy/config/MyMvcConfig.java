@@ -2,8 +2,15 @@ package pers.huidong.springbootstudy.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.thymeleaf.util.StringUtils;
+import pers.huidong.springbootstudy.component.MyLocateResolver;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Locale;
 
 /**
  * @program: springboot-study
@@ -30,4 +37,30 @@ public class MyMvcConfig implements WebMvcConfigurer {
         };
         return webMvcConfigurer;
     }
+
+    @Bean
+    public LocaleResolver localeResolver(){
+        return new MyLocateResolver();
+    }
+//   //这里是将MyLocateResolver写在这里
+//        @Bean
+//    public LocaleResolver localeResolver(){
+//        return new LocaleResolver() {
+//            @Override
+//            public Locale resolveLocale(HttpServletRequest httpServletRequest) {
+//                String l = httpServletRequest.getParameter("l");
+//                Locale locale = Locale.getDefault();
+//                if(!StringUtils.isEmpty(l)){
+//                    String[] split = l.split("_");
+//                    locale = new Locale(split[0],split[1]);
+//                }
+//                return locale;
+//            }
+//
+//            @Override
+//            public void setLocale(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Locale locale) {
+//
+//            }
+//        };
+//    }
 }
