@@ -3,9 +3,11 @@ package pers.huidong.springbootstudy.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.util.StringUtils;
+import pers.huidong.springbootstudy.component.LoginInterceptor;
 import pers.huidong.springbootstudy.component.MyLocateResolver;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,10 +23,10 @@ import java.util.Locale;
 //@EnableWebMvc
 @Configuration
 public class MyMvcConfig implements WebMvcConfigurer {
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/huidong").setViewName("success");
-    }
+//    @Override
+//    public void addViewControllers(ViewControllerRegistry registry) {
+//        registry.addViewController("/huidong").setViewName("success");
+//    }
 
     @Bean
     public WebMvcConfigurer webMvcConfigurer(){
@@ -34,7 +36,14 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 registry.addViewController("/").setViewName("login");
                 registry.addViewController("/login.html").setViewName("login");
                 registry.addViewController("/main.html").setViewName("dashboard");
+            }
 
+            //注册拦截器
+            @Override
+            public void addInterceptors(InterceptorRegistry registry) {
+                registry.addInterceptor(new LoginInterceptor())
+                        .addPathPatterns("/**")
+                        .excludePathPatterns("/login.html","/","/user/login");
             }
         };
         return webMvcConfigurer;
