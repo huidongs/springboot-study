@@ -9,15 +9,29 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import pers.huidong.springbootstudy.bean.Person;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 class SpringbootStudyApplicationTests {
 
     @Autowired
     Person person;
+    @Autowired
+    DataSource dataSource;
 
     @Test
-    void contextLoads() {
+    public void contextLoads() throws SQLException{
+        System.out.println(dataSource.getClass());
+        Connection connection = dataSource.getConnection();
+        System.out.println(connection);
+        connection.close();
+    }
+
+    @Test
+    void contextLoadsTest() {
         System.out.println(person);
     }
 
