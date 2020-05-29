@@ -38,13 +38,13 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 registry.addViewController("/main.html").setViewName("dashboard");
             }
 
-            //注册拦截器
-//            @Override
-//            public void addInterceptors(InterceptorRegistry registry) {
-//                registry.addInterceptor(new LoginInterceptor())
-//                        .addPathPatterns("/**")
-//                        .excludePathPatterns("/login.html","/","/user/login");
-//            }
+        //    注册拦截器
+            @Override
+            public void addInterceptors(InterceptorRegistry registry) {
+                registry.addInterceptor(new LoginInterceptor())
+                        .addPathPatterns("/**")
+                        .excludePathPatterns("/login.html","/","/user/login");
+            }
         };
         return webMvcConfigurer;
     }

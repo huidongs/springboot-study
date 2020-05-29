@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import pers.huidong.springbootstudy.bean.Department;
+import pers.huidong.springbootstudy.bean.Employee;
 import pers.huidong.springbootstudy.dao.DepartmentDao;
 import pers.huidong.springbootstudy.mapper.DepartmentMapper;
+import pers.huidong.springbootstudy.mapper.EmployeeMapper;
 
 import javax.annotation.Resource;
 
@@ -21,16 +23,23 @@ import javax.annotation.Resource;
 @RestController
 public class DeptController {
 
-    @Autowired
-    DepartmentMapper departmentMapper;
-
-    @GetMapping("/dept/{id}")
-    public Department getDepartment(@PathVariable("id")Integer id){
-        return departmentMapper.getDeptById(id);
-    }
-    @GetMapping("/dept")
-    public Department insertDept(Department department){
-        departmentMapper.insertDept(department);
-        return department;
-    }
+//    @Autowired(required = false)
+//    DepartmentMapper departmentMapper;
+//    @Autowired(required = false)
+//    EmployeeMapper employeeMapper;
+//
+//    @GetMapping("/dept/{id}")
+//    public Department getDepartment(@PathVariable("id") Integer id) {
+//        return departmentMapper.getDeptById(id);
+//    }
+//
+//    //    @GetMapping("/dept")
+////    public Department insertDept(Department department){
+////        departmentMapper.insertDept(department);
+////        return department;
+////    }
+//    @GetMapping("/emp/{id}")
+//    public Employee getEmp(@PathVariable("id") Integer id) {
+//        return employeeMapper.getEmpById(id);
+//    }
 }

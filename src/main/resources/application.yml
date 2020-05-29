@@ -65,3 +65,6 @@ person:
   dog:
     name: 小狗
     age: 10
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml

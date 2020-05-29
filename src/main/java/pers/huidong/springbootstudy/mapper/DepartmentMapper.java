@@ -17,11 +17,11 @@ public interface DepartmentMapper {
 
     @Delete("delete form department where id = #{id}")
     public int deleteDeptById(Integer id);
-
-    @Options(useGeneratedKeys = true,keyProperty = "id")
-    @Insert("insert into department(departmentName) values(#{departmentName})")
-    public int insertDept(Department department);
-
-    @Update("update department set departmentName=#{departmentName} where id = #{id}")
-    public int updateDept(Department department);
+//
+//    @Options(useGeneratedKeys = true,keyProperty = "id")
+//    @Insert("insert into department(departmentName) values(#{departmentName})")
+//    public int insertDept(Department department);
+//
+//    @Update("update department set departmentName=#{departmentName} where id = #{id}")
+//    public int updateDept(Department department);
 }
