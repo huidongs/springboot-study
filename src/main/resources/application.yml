@@ -4,9 +4,10 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     # MYSQL 5 驱动：com.mysql.jdbc.Driver，MYSQL 6+ 驱动：com.mysql.cj.jdbc.Driver
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/db_sb?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/db_mybatis?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     username: huidong
     password: huidong
+    #导入sql
     # 连接池配置
     druid:
       # 初始化大小，最小，最大
@@ -47,9 +48,11 @@ spring:
         # 登录用户名/密码
         login-username: root
         login-password: 123
-
-
-
+    #生成数据表
+#    schema:
+#      - classpath:sql/department.sql
+#      - classpath:sql/employee.sql
+#    initialization-mode: always
 person:
   lastName: huidong
   age: 18
